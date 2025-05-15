@@ -30,6 +30,8 @@ jobs:
 
       - name: Check endpoints
         run: |
+          setwd("manuscript/")
+          rmarkdown::render("manuscript.Rmd")
           cat(paste0(readLines("tab.csv"), collapse = ""))
           digest::digest("tab.csv", file = TRUE)
           digest::digest(paste0(readLines("tab.csv"), collapse = ""))
