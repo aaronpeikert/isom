@@ -31,7 +31,12 @@ jobs:
       - name: Check endpoints
         run: |
           setwd("manuscript/")
-          rmarkdown::render("manuscript.Rmd")
+          tab <- data.frame(
+                   a = 1:5,
+                   b = 6:10,
+                   c = letters[1:5]
+          )
+          write.csv(tab, "tab.csv")
           cat(paste0(readLines("tab.csv"), collapse = ""))
           digest::digest("tab.csv", file = TRUE)
           digest::digest(paste0(readLines("tab.csv"), collapse = ""))
