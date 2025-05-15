@@ -38,6 +38,23 @@ jobs:
           )
           write.csv(tab, "tab.csv")
           cat(paste0(readLines("tab.csv"), collapse = ""))
+          cat("\\n")
           digest::digest("tab.csv", file = TRUE)
+          cat("\\n")
           digest::digest(paste0(readLines("tab.csv"), collapse = ""))
+          cat("\\n")
+          worcs::is_binary("tab.csv")
+          cat("\\n")
+          cs_fun <- function(filename){
+            tryCatch({
+                if(is_binary(filename)){
+                  digest::digest(filename, file = TRUE)
+                } else {
+                  stop()
+                }
+              }, error = function(e){
+                suppressWarnings(digest::digest(paste0(readLines(filename), collapse = ""), serialize = FALSE, file = FALSE))
+              })
+            }
+          cs_fun("tab.csv")
         shell: Rscript {0}
