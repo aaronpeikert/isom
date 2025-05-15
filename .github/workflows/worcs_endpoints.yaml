@@ -43,7 +43,7 @@ jobs:
           cat("\\n")
           digest::digest(paste0(readLines("tab.csv"), collapse = ""))
           cat("\\n")
-          worcs::is_binary("tab.csv")
+          worcs:::is_binary("tab.csv")
           cat("\\n")
           cs_fun <- function(filename){
             tryCatch({
