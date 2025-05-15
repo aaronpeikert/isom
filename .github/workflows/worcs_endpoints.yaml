@@ -60,5 +60,5 @@ jobs:
               })
             }
           cs_fun("tab.csv")
-          yaml::read_yaml(".worcs")[["checksums"]][[manuscript/tab.csv]] == cs_fun("tab.csv")
+          yaml::read_yaml(".worcs")[["checksums"]][["manuscript/tab.csv"]] == cs_fun("tab.csv")
         shell: Rscript {0}
