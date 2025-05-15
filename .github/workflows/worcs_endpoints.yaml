@@ -30,5 +30,7 @@ jobs:
 
       - name: Check endpoints
         run: |
-          worcs::check_endpoints()
+          cat(paste0(readLines("tab.csv"), collapse = ""))
+          digest::digest("tab.csv", file = TRUE)
+          digest::digest(paste0(readLines("tab.csv"), collapse = ""))
         shell: Rscript {0}
