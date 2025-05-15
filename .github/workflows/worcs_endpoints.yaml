@@ -30,6 +30,7 @@ jobs:
 
       - name: Check endpoints
         run: |
+          file.copy(".worcs", "manuscript/.worcs")
           setwd("manuscript/")
           tab <- data.frame(
                    a = 1:5,
@@ -59,4 +60,5 @@ jobs:
               })
             }
           cs_fun("tab.csv")
+          yaml::read_yaml(".worcs")[["checksums"]][[manuscript/tab.csv]] == cs_fun("tab.csv")
         shell: Rscript {0}
