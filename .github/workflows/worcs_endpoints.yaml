@@ -43,7 +43,7 @@ jobs:
           cat("\n")
           digest::digest(paste0(readLines("tab.csv"), collapse = ""))
           cat("\n")
-          digest::digest(paste0(readLines(filename), collapse = ""), serialize = FALSE, file = FALSE)
+          digest::digest(paste0(readLines("tab.csv"), collapse = ""), serialize = FALSE, file = FALSE)
           cat("\n")
           worcs:::is_binary("tab.csv")
           cat("\n")
